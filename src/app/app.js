@@ -1,9 +1,14 @@
 import React from "react";
 
-import "./app.css";
+import "./app.scss";
+import ErrorBoundary from "../components/error-boundary/error-boundary";
 
 const App = () => {
-  return <div>Hello World!</div>;
+  return (
+    <ErrorBoundary>
+      <div>Hello World</div>
+    </ErrorBoundary>
+  );
 };
 
 export default App;
