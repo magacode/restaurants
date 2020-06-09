@@ -1,12 +1,16 @@
 import React from "react";
 
-import "./app.scss";
 import ErrorBoundary from "../components/error-boundary/error-boundary";
+import { BrowserRouter } from "react-router-dom";
+import Navbar from "../components/navbar";
+import "./app.scss";
 
 const App = () => {
   return (
     <ErrorBoundary>
-      <div>Hello World</div>
+      <BrowserRouter>
+        <Navbar />
+      </BrowserRouter>
     </ErrorBoundary>
   );
 };
