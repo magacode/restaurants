@@ -6,6 +6,7 @@ import Header from "../components/header";
 import Slider from "../components/slider/slider";
 
 import "./app.scss";
+import Restaurants from "../components/restaurants";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Slider />
+        <Restaurants />
       </BrowserRouter>
     </ErrorBoundary>
   );
