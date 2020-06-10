@@ -1,5 +1,16 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+  }
 }

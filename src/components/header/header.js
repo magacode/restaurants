@@ -5,13 +5,19 @@ import Address from "../address/address";
 
 import "./header.scss";
 import Authorization from "../authorization";
+import Basket from "../basket";
 
 const Header = () => {
   return (
     <header className="navbar navbar-light bg-light  header">
-      <Logo />
-      <Address />
-      <Authorization />
+      <div className="header__left">
+        <Logo />
+        <Address />
+      </div>
+      <div className="header__right">
+        <Authorization />
+        <Basket />
+      </div>
     </header>
   );
 };
