@@ -4,6 +4,11 @@
   }
 
   &__text {
-    padding: 0 0 0 6px;
+    display: none;
+
+    @media (min-width: 576px) {
+      display: inline-block;
+      padding: 0 0 0 6px;
+    }
   }
 }
