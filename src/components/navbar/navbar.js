@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Logo from "../logo";
+
 import "./navbar.scss";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
-        Restaurants App
-      </Link>
+      <Logo />
       <button
         className="navbar-toggler"
         type="button"
@@ -47,7 +47,7 @@ const Navbar = () => {
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="#">
-                Action
+                Рестораны
               </Link>
               <Link className="dropdown-item" to="#">
                 Another action
