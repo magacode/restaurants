@@ -1,29 +1,46 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { RestaurantsServiceConsumer } from "../../services/restaurants-service-context";
-import Search from "../search";
-
-import "./restaurants.scss";
-import Categories from "../categories";
+import { withRestaurantsService } from "../hoc-helpers";
 import Item from "../item";
 
-const Restaurants = () => {
-  return (
-    <div className="restaurants">
-      <h1>Рестораны</h1>
-      <RestaurantsServiceConsumer>
-        {(restaurantsService) => {
-          restaurantsService
-            .getAllRestaurants()
-            .then((result) => console.log(result));
-        }}
-      </RestaurantsServiceConsumer>
+import "./restaurants.scss";
 
-      <Search />
-      <Categories list={[]} />
-      <Item list={[]} />
-    </div>
-  );
+class Restaurants extends Component {
+  componentDidMount() {
+    const { restaurantsService } = this.props;
+    const data = restaurantsService.getAllRestaurants();
+    data.then((result) => {
+      this.props.restaurantsLoaded(result);
+    });
+  }
+
+  render() {
+    if (!this.props.restaurants.data) {
+      return <span>Loading...</span>;
+    }
+
+    return <Item list={this.props.restaurants.data} />;
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    restaurants: state.restaurants,
+  };
 };
 
-export default Restaurants;
+const mapDispatchToProps = (dispath) => {
+  return {
+    restaurantsLoaded: (newRestaurants) => {
+      dispath({
+        type: "RESTOURANTS_LOADED",
+        payload: newRestaurants,
+      });
+    },
+  };
+};
+
+export default withRestaurantsService()(
+  connect(mapStateToProps, mapDispatchToProps)(Restaurants)
+);
