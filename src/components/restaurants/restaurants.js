@@ -1,5 +1,6 @@
 import React from "react";
 
+import { RestaurantsServiceConsumer } from "../../services/restaurants-service-context";
 import Search from "../search";
 
 import "./restaurants.scss";
@@ -10,6 +11,14 @@ const Restaurants = () => {
   return (
     <div className="restaurants">
       <h1>Рестораны</h1>
+      <RestaurantsServiceConsumer>
+        {(restaurantsService) => {
+          restaurantsService
+            .getAllRestaurants()
+            .then((result) => console.log(result));
+        }}
+      </RestaurantsServiceConsumer>
+
       <Search />
       <Categories list={[]} />
       <Item list={[]} />
