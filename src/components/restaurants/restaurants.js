@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { withRestaurantsService } from "../hoc-helpers";
-import Item from "../item";
+import CardsList from "../cards-list/cards-list";
 
 import "./restaurants.scss";
 
@@ -20,7 +20,13 @@ class Restaurants extends Component {
       return <span>Loading...</span>;
     }
 
-    return <Item list={this.props.restaurants.data} />;
+    return (
+      <div className="container">
+        <div className="row row-cols-1 row-cols-md-3">
+          <CardsList list={this.props.restaurants.data} />
+        </div>
+      </div>
+    );
   }
 }
 
