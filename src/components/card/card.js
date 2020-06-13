@@ -5,16 +5,14 @@ import CardBody from "../card-body";
 
 import "./card.scss";
 
-const Card = ({
-  item: { restaurant_id, src, restaurant_name, price_range_100 },
-}) => {
+const Card = ({ item: { src, restaurant_name, price_range_100 }, id }) => {
   return (
-    <div className="col mb-4" key={restaurant_id}>
+    <div className="col mb-4" key={id}>
       <div className="card h-100">
         <Picture src={src} />
         <CardBody
-          restaurant_name={restaurant_name}
-          price_range_100={price_range_100}
+          restaurantName={restaurant_name}
+          priceRange={price_range_100}
         />
       </div>
     </div>

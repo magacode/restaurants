@@ -5,10 +5,14 @@ import icon from "./error-logo.png";
 
 const ErrorIndicator = () => {
   return (
-    <div className="error__indicator">
-      <img src={icon} alt="error__icon" className="error__icon" />
-      <span className="error__title">Error</span>
-      <span className="error__descr">something has gone terribly wrong</span>
+    <div className="row">
+      <div className="col-12">
+        <div class="alert alert-danger mt-3 text-center" role="alert">
+          <img src={icon} alt="" className="error__icon" />
+          <p className="error__title">Error</p>
+          <p className="error__descr">Something has gone terribly wrong</p>
+        </div>
+      </div>
     </div>
   );
 };
