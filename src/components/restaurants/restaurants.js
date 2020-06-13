@@ -1,30 +1,56 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import ErrorIndicator from "../error-indicator";
+import Spinner from "../spinner";
 import { withRestaurantsService } from "../hoc-helpers";
 import CardsList from "../cards-list/cards-list";
 
 import "./restaurants.scss";
 
 class Restaurants extends Component {
+  state = {
+    loading: true,
+    error: false,
+  };
+
   componentDidMount() {
     const { restaurantsService } = this.props;
-    const data = restaurantsService.getAllRestaurants();
-    data.then((result) => {
-      this.props.restaurantsLoaded(result);
-    });
+
+    restaurantsService
+      .getAllRestaurants()
+      .then((result) => {
+        this.props.restaurantsLoaded(result);
+        this.setState({
+          loading: false,
+        });
+      })
+      .catch(this.onError);
   }
 
+  onError = (err) => {
+    this.setState({
+      error: true,
+      loading: false,
+    });
+  };
+
   render() {
-    if (!this.props.restaurants.data) {
-      return <span>Loading...</span>;
-    }
+    const { loading, error } = this.state;
+
+    const hasData = !(loading || error);
+
+    const errorMessage = error ? <ErrorIndicator /> : null;
+    const spinner = loading ? <Spinner /> : null;
+    const content = hasData ? (
+      <CardsList list={this.props.restaurants.data} />
+    ) : null;
 
     return (
       <div className="container">
-        <div className="row row-cols-1 row-cols-md-3">
-          <CardsList list={this.props.restaurants.data} />
-        </div>
+        {errorMessage}
+        {spinner}
+        {content}
       </div>
     );
   }
