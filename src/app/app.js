@@ -9,7 +9,7 @@ import store from "../store";
 import Header from "../components/header";
 import Restaurants from "../components/restaurants";
 
-import "./app.scss";
+// import styles from "./app.module.scss";
 
 const restaurantsService = new RestaurantsService();
 

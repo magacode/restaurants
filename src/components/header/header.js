@@ -2,10 +2,10 @@ import React from "react";
 
 import Logo from "../logo";
 import Address from "../address/address";
-
-import "./header.scss";
 import Authorization from "../authorization";
 import Basket from "../basket";
+
+// import styles from "./header.module.scss";
 
 const Header = () => {
   return (

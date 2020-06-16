@@ -5,4 +5,11 @@ const restaurantsLoaded = (newRestaurants) => {
   };
 };
 
-export { restaurantsLoaded };
+const cuisinesLoaded = (cuisines) => {
+  return {
+    type: "CUISINES_LOADED",
+    payload: cuisines,
+  };
+};
+
+export { restaurantsLoaded, cuisinesLoaded };
