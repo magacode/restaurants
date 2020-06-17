@@ -1,3 +1,4 @@
 import withRestaurantsService from "./with-restaurants-service";
+import withData from "./with-data";
 
-export { withRestaurantsService };
+export { withRestaurantsService, withData };

@@ -47,6 +47,10 @@ class Restaurants extends Component {
   onSelectedСuisine = (cuisine) => {
     const { restaurantsService } = this.props;
 
+    this.setState({
+      loading: true,
+    });
+
     restaurantsService
       .getСuisine(1, cuisine)
       .then((result) => {

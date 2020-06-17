@@ -1,19 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import "./logo.scss";
+import { Link } from "react-router-dom";
 
 import logo from "./logo.png";
 
+import "./logo.scss";
+
 const Logo = () => {
   return (
-    <Link to="/" className="navbar-brand  logo">
+    <Link to="/" className="navbar-brand">
       <img
         src={logo}
-        alt="Logo"
-        className="d-inline-block align-top logo__pic"
+        width="41"
+        height="30"
+        className="d-inline-block align-top"
+        alt="GetEatApp"
+        loading="lazy"
       />
-      <span className="logo__text">RestaurantsApp</span>
+      <span className="pl-1 font-weight-bold">GetFoodApp</span>
     </Link>
   );
 };

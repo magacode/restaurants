@@ -6,8 +6,9 @@ import ErrorBoundary from "../components/error-boundary/error-boundary";
 import RestaurantsService from "../services/restaurants-service";
 import { RestaurantsServiceProvider } from "../services/restaurants-service-context";
 import store from "../store";
-import Header from "../components/header";
+import Navbar from "../components/navbar";
 import Restaurants from "../components/restaurants";
+import VendorList from "../components/vendor-list/vendor-list";
 
 // import styles from "./app.module.scss";
 
@@ -19,8 +20,9 @@ const App = () => {
       <ErrorBoundary>
         <RestaurantsServiceProvider value={restaurantsService}>
           <Router>
-            <Header />
-            <Restaurants />
+            <Navbar />
+            <VendorList />
+            {/* <Restaurants /> */}
           </Router>
         </RestaurantsServiceProvider>
       </ErrorBoundary>
